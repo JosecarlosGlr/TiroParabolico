@@ -8,21 +8,26 @@ function calculaDistancia(angulo, velIni){
     return distancia;
 }
 function calcular() {
+    document.getElementById('resultado').value = " ";
     const angulo = parseFloat(document.getElementById('angulo').value);
     const velocidad = parseFloat(document.getElementById('velIni').value);
-
+    
     if (isNaN(angulo) || isNaN(velocidad)) {
-        document.getElementById('resultado').textContent = "Por favor introduce valores numéricos válidos.";
+        document.getElementById('resultado').value = "Por favor introduce valores numéricos válidos.";
         return;
     }
-    else if ((angulo)<90 || (angulo)>0 || (velocidad)>0) {
-        document.getElementById('resultado').textContent = "Por favor el angulo debe ser mayor de 0 y menor de 90º.";
+    if((velocidad)<0 ||(angulo)>90 || (angulo)<0) {
+        document.getElementById('resultado').value = "Por favor introduce valores correctos";
         return;
     }
-    else if ((velocidad)>0) {
-        document.getElementById('resultado').textContent = "Por favor introduce una velocidad positiva";
+    if((velocidad)<0) {
+        document.getElementById('resultado').value = "Por favor introduce una velocidad positiva";
+        return;
+    }
+    if ((angulo)>90 || (angulo)<0) {
+        document.getElementById('resultado').value = "Por favor el angulo debe ser mayor de 0 y menor de 90º.";
         return;
     }
     const distancia = calculaDistancia(angulo, velocidad);
-    document.getElementById('resultado').textContent = `La distancia es: ${distancia} metros.`;
+    document.getElementById('resultado').value= `La distancia es: ${distancia.toFixed(2)} metros.`;
 }
