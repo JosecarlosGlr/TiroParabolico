@@ -8,8 +8,8 @@ function calculaDistancia(angulo, velIni){
     return distancia;
 }
 function calcular() {
-     angulo = parseFloat(document.getElementById('angulo').value);
-    const velocidad = parseFloat(document.getElementById('velocidad').value);
+    const angulo = parseFloat(document.getElementById('angulo').value);
+    const velocidad = parseFloat(document.getElementById('velIni').value);
 
     if (isNaN(angulo) || isNaN(velocidad)) {
         document.getElementById('resultado').textContent = "Por favor introduce valores numéricos válidos.";
